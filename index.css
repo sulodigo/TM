@@ -1,0 +1,43 @@
+h1{
+    color: blueviolet;
+    text-align: center;
+}
+
+h2{
+    color: violet;
+    text-align: center;
+}
+
+p{
+    color: crimson;
+    text-align: justify;
+}
+
+table, th, td {
+    text-align: center;
+    border:1px dotted blue;
+    margin-left: 200px;
+}
+
+a:link, a:visited {
+    background-color: violet;
+    color: white;
+    padding: 14px 25px;
+    text-align: right;
+    text-decoration: none;
+    display: inline-block;
+}
+  
+a:hover, a:active {
+    background-color: crimson;
+}
+
+#contenedor{
+    display: flex;
+    justify-content: center;
+}
+
+#link{
+    display: flex;
+    justify-content: right;
+}
