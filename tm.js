@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // window.addEventListener('load', function() {
 
 //     const prueba = document.querySelector(".prueba");
@@ -77,4 +78,44 @@ window.addEventListener("load", function(){
     document.getElementById("btnLimpiar").addEventListener("click", limpiar);
 
     imprimirTablaEnHTML();
+=======
+// window.addEventListener('load', function() {
+
+//     const prueba = document.querySelector(".prueba");
+    
+    
+
+//     prueba.addEventListener("click", saludar);
+   
+// });
+
+// function saludar(){
+//     alert("Hola, ¿cómo estás?");
+// }
+
+function saludar(){
+    alert("Hola");
+}
+
+function limpiar(){
+    // alert("Estoy borrando info...");
+    // const producto = document.getElementById("producto");
+    // producto.value="";
+
+    document.getElementById("producto").value="";
+    document.getElementById("marca").value="0";
+    document.getElementById("precio").value="";
+}
+
+window.addEventListener("load", function(){
+
+    // const btnPrueba = document.getElementById("btnPrueba");
+    // btnPrueba.addEventListener("click", saludar);
+    document.getElementById("btnPrueba").addEventListener("click", saludar);
+
+    // document.getElementById("prueba").onclick=saludar;
+
+    document.getElementById("btnLimpiar").addEventListener("click", limpiar);
+
+>>>>>>> d81edaa6cbb5fd318e220ec672bc6bc6d24b0ed3
 });
