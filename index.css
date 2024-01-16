@@ -27,6 +27,14 @@ a:hover, a:active {
     margin-bottom: 50px;
 }
 
+#consulta{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-left: 10px;
+    padding: 0px;
+}
+
 .contenedorPrincipal{
     margin-left: 40px;
 }
@@ -44,6 +52,12 @@ a:hover, a:active {
     margin-bottom: 20px;
 }
 
+#prueba{
+    display: flex;
+    justify-content: right;
+    margin-right: 5px;
+}
+
 #contenedor{
     display: flex;
     justify-content: center;
@@ -51,4 +65,15 @@ a:hover, a:active {
 
 #segundaPagina{
     margin-top: 50px;
+}
+
+#tabla1{
+    margin-top: 15px;
+    td, th {
+        border: 2px dotted crimson;
+        text-align: center;
+        padding: 8px;
+        margin-right: 5px;
+        width: 30%;
+      } 
 }
