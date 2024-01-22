@@ -9,7 +9,6 @@ a:link, a:visited {
     padding: 14px 25px;
     text-align: right;
     text-decoration: none;
-    display: inline-block;
 }
   
 a:hover, a:active {
@@ -39,17 +38,11 @@ a:hover, a:active {
     margin-left: 40px;
 }
 
-.table, th, td {
-    text-align: left;
-    margin-right: 30px;
-    margin-top: 50px;
-}
-
 .link{
     display: flex;
     justify-content: left;
     margin-left: 40px;
-    margin-bottom: 20px;
+    margin-bottom: 20px; 
 }
 
 #prueba{
@@ -63,17 +56,51 @@ a:hover, a:active {
     justify-content: center;
 } 
 
-#segundaPagina{
-    margin-top: 50px;
-}
 
 #tabla1{
+    width: 100%;
+    height: 80%;
     margin-top: 15px;
+    padding-right: 2cm;
+    padding-left: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     td, th {
         border: 2px dotted crimson;
         text-align: center;
         padding: 8px;
-        margin-right: 5px;
-        width: 30%;
-      } 
+    } 
 }
+
+#tarjetas1{
+    width: 100%;
+    height: 80%;
+    margin-top: 15px;
+    padding-right: 2cm;
+    padding-left: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#btnPrueba, #btnPrueba2{
+    margin-right: 50px;
+}
+
+#btnes{
+    display: flex;
+    
+    flex-flow: row wrap;
+    justify-content: space-evenly; 
+    
+    
+    padding-left: 30px;
+    padding-right: 30px;
+
+}
+
+/* #btnTabla, #btnTarjetas{
+    padding-left: 30px;
+    padding-right: 30px;
+} */

@@ -1,9 +1,7 @@
-<<<<<<< HEAD
+
 // window.addEventListener('load', function() {
 
-//     const prueba = document.querySelector(".prueba");
-    
-    
+//     const prueba = document.querySelector(".prueba");    
 
 //     prueba.addEventListener("click", saludar);
    
@@ -27,8 +25,6 @@ function limpiar(){
     document.getElementById("precio").value="";
 }
 
-function imprimirTablaEnHTML(){
-
 const productosDeTabla=[
     {Producto: "Alimento seco", Marca: "MasterCat", Cantidad: "15 kilos", Valor: "$34.890"},
     {Producto: "Alimento seco", Marca: "Meowi", Cantidad: "6 kilos", Valor: "$25.990"},
@@ -41,6 +37,8 @@ const productosDeTabla=[
     {Producto: "Arena sanitaria", Marca: "MasterCat", Cantidad: "6 kilos", Valor: "$15.990"},
     {Producto: "Arena sanitaria", Marca: "Meowi", Cantidad: "4 kilos", Valor: "$9.990"},
 ]
+
+function imprimirTablaEnHTML(){
 
 const tabla1=document.getElementById("tabla1");
 let htmlTabla = '';
@@ -66,24 +64,40 @@ let htmlTabla = '';
   
         tabla1.innerHTML = htmlTabla;
 }
-    
-window.addEventListener("load", function(){
 
-    // const btnPrueba = document.getElementById("btnPrueba");
-    // btnPrueba.addEventListener("click", saludar);
-    document.getElementById("btnPrueba").addEventListener("click", saludar);
+function imprimirTarjetasEnHTML(){
 
-    // document.getElementById("prueba").onclick=saludar;
+const tarjetas1=document.getElementById("tarjetas1");
+let htmlTarjetas = '';
+        htmlTarjetas +=  '<div class="row">';
 
-    document.getElementById("btnLimpiar").addEventListener("click", limpiar);
+        for (let i = 0; i < productosDeTabla.length; i++) {
+            htmlTarjetas += '<div class="col-sm-10">'
+            htmlTarjetas += '<div class="card text-center">';
+            htmlTarjetas += '<div class="card-header">';
+            //htmlTarjetas += '<img src="./img/jgp.png" class="card-img-top" alt="...">';
+            htmlTarjetas += '<div class="card-body">' +  productosDeTabla[i].Producto + '</div>';
+            htmlTarjetas += '<h5 class="card-tittle">' +  productosDeTabla[i].Marca + '</h5>';
+            htmlTarjetas += '<div class="card-body">' +  productosDeTabla[i].Cantidad + '</div>';
+            htmlTarjetas += '<div class="card-footer">' +  productosDeTabla[i].Valor + '</div>';
+            htmlTarjetas += '<a href="#" class="btn btn-secondary">Comprar aquí! </a>';
+            htmlTarjetas += '</div>';
+            htmlTarjetas += '</div>';
+            htmlTarjetas += '</div>';
+            htmlTarjetas += '</div>';
+            htmlTarjetas += '<br>';
+        }
 
-    imprimirTablaEnHTML();
-=======
+        htmlTarjetas += '</div>';
+  
+        tarjetas1.innerHTML = htmlTarjetas; 
+
+}
+   
+
 // window.addEventListener('load', function() {
 
 //     const prueba = document.querySelector(".prueba");
-    
-    
 
 //     prueba.addEventListener("click", saludar);
    
@@ -117,5 +131,10 @@ window.addEventListener("load", function(){
 
     document.getElementById("btnLimpiar").addEventListener("click", limpiar);
 
->>>>>>> d81edaa6cbb5fd318e220ec672bc6bc6d24b0ed3
-});
+    document.getElementById("btnTabla").addEventListener("click", imprimirTablaEnHTML);
+
+    document.getElementById("btnTarjetas").addEventListener("click", imprimirTarjetasEnHTML);
+
+    // imprimirTablaEnHTML();
+
+})
