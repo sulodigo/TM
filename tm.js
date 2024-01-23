@@ -72,20 +72,18 @@ let htmlTarjetas = '';
         htmlTarjetas +=  '<div class="row">';
 
         for (let i = 0; i < productosDeTabla.length; i++) {
-            htmlTarjetas += '<div class="col-sm-10">'
-            htmlTarjetas += '<div class="card text-center">';
-            htmlTarjetas += '<div class="card-header">';
+            htmlTarjetas += '<div class="col-sm-3 tarjeta">'
+            htmlTarjetas += '   <div class="card text-center">';
+            htmlTarjetas += '       <div class="card-header">';
             //htmlTarjetas += '<img src="./img/jgp.png" class="card-img-top" alt="...">';
-            htmlTarjetas += '<div class="card-body">' +  productosDeTabla[i].Producto + '</div>';
-            htmlTarjetas += '<h5 class="card-tittle">' +  productosDeTabla[i].Marca + '</h5>';
-            htmlTarjetas += '<div class="card-body">' +  productosDeTabla[i].Cantidad + '</div>';
-            htmlTarjetas += '<div class="card-footer">' +  productosDeTabla[i].Valor + '</div>';
-            htmlTarjetas += '<a href="#" class="btn btn-secondary">Comprar aquí! </a>';
+            htmlTarjetas += '           <div class="card-body">' +  productosDeTabla[i].Producto + '</div>';
+            htmlTarjetas += '           <h5 class="card-tittle">' +  productosDeTabla[i].Marca + '</h5>';
+            htmlTarjetas += '           <div class="card-body">' +  productosDeTabla[i].Cantidad + '</div>';
+            htmlTarjetas += '           <div class="card-footer">' +  productosDeTabla[i].Valor + '</div>';
+            htmlTarjetas += '               <a href="#" class="btn btn-secondary">Comprar aquí! </a>';
+            htmlTarjetas += '       </div>';
+            htmlTarjetas += '   </div>';
             htmlTarjetas += '</div>';
-            htmlTarjetas += '</div>';
-            htmlTarjetas += '</div>';
-            htmlTarjetas += '</div>';
-            htmlTarjetas += '<br>';
         }
 
         htmlTarjetas += '</div>';
@@ -93,14 +91,16 @@ let htmlTarjetas = '';
         tarjetas1.innerHTML = htmlTarjetas; 
 
 }
+
+function consultar(){
+    imprimirTablaEnHTML();
+    imprimirTarjetasEnHTML();
+};
    
 
 // window.addEventListener('load', function() {
-
 //     const prueba = document.querySelector(".prueba");
-
 //     prueba.addEventListener("click", saludar);
-   
 // });
 
 // function saludar(){
@@ -131,9 +131,11 @@ window.addEventListener("load", function(){
 
     document.getElementById("btnLimpiar").addEventListener("click", limpiar);
 
-    document.getElementById("btnTabla").addEventListener("click", imprimirTablaEnHTML);
+    document.getElementById("btnConsultar").addEventListener("click", consultar);
 
-    document.getElementById("btnTarjetas").addEventListener("click", imprimirTarjetasEnHTML);
+    //document.getElementById("btnTabla").addEventListener("click", imprimirTablaEnHTML);
+
+    //document.getElementById("btnTarjetas").addEventListener("click", imprimirTarjetasEnHTML);
 
     // imprimirTablaEnHTML();
 
