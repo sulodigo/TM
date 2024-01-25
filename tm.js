@@ -26,7 +26,7 @@ function limpiar(){
 }
 
 function toggleDiv() {
-    let div = document.getElementById("contenedor");
+    let div = document.getElementById("contenedorPrincipal");
     if (div.style.display === "none") {
       div.style.display = "block";
     } else {
