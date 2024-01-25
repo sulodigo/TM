@@ -25,18 +25,9 @@ function limpiar(){
     document.getElementById("precio").value="";
 }
 
-function toggleDiv() {
-    let div = document.getElementById("contenedorPrincipal");
-    if (div.style.display === "none") {
-      div.style.display = "block";
-    } else {
-      div.style.display = "none";
-    }
+function mostrarDiv() {
+    document.getElementById("contenedorPrincipal").style.display = "block";
   }
-  
-  
-  
-  
 
 const productosDeTabla=[
     {Producto: "Alimento seco", Marca: "MasterCat", Cantidad: "15 kilos", Valor: "$34.890"},
@@ -106,7 +97,7 @@ let htmlTarjetas = '';
 }
 
 function consultar(){
-    toggleDiv();
+    mostrarDiv();
     imprimirTablaEnHTML();
     imprimirTarjetasEnHTML();
 };
