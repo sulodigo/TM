@@ -25,6 +25,19 @@ function limpiar(){
     document.getElementById("precio").value="";
 }
 
+function toggleDiv() {
+    let div = document.getElementById("contenedor");
+    if (div.style.display === "none") {
+      div.style.display = "block";
+    } else {
+      div.style.display = "none";
+    }
+  }
+  
+  
+  
+  
+
 const productosDeTabla=[
     {Producto: "Alimento seco", Marca: "MasterCat", Cantidad: "15 kilos", Valor: "$34.890"},
     {Producto: "Alimento seco", Marca: "Meowi", Cantidad: "6 kilos", Valor: "$25.990"},
@@ -93,6 +106,7 @@ let htmlTarjetas = '';
 }
 
 function consultar(){
+    toggleDiv();
     imprimirTablaEnHTML();
     imprimirTarjetasEnHTML();
 };
