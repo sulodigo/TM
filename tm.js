@@ -15,6 +15,15 @@ function saludar(){
     alert("Hola");
 }
 
+function mostrarDiv() {
+    document.getElementById("contenedorPrincipal").style.display = "block";
+}
+ 
+function ocultarDiv() {
+    //document.getElementById("contenedorPrincipal").onclick = null;  esto no me funcionó para ocultar el div
+    document.getElementById("contenedorPrincipal").style.display = "none";
+}
+
 function limpiar(){
     // alert("Estoy borrando info...");
     // const producto = document.getElementById("producto");
@@ -23,11 +32,9 @@ function limpiar(){
     document.getElementById("producto").value="";
     document.getElementById("marca").value="0";
     document.getElementById("precio").value="";
-}
 
-function mostrarDiv() {
-    document.getElementById("contenedorPrincipal").style.display = "block";
-  }
+    ocultarDiv();
+}
 
 const productosDeTabla=[
     {Producto: "Alimento seco", Marca: "MasterCat", Cantidad: "15 kilos", Valor: "$34.890"},
@@ -102,35 +109,11 @@ function consultar(){
     imprimirTarjetasEnHTML();
 };
    
-
-// window.addEventListener('load', function() {
-//     const prueba = document.querySelector(".prueba");
-//     prueba.addEventListener("click", saludar);
-// });
-
-// function saludar(){
-//     alert("Hola, ¿cómo estás?");
-// }
-
-function saludar(){
-    alert("Hola");
-}
-
-function limpiar(){
-    // alert("Estoy borrando info...");
-    // const producto = document.getElementById("producto");
-    // producto.value="";
-
-    document.getElementById("producto").value="";
-    document.getElementById("marca").value="0";
-    document.getElementById("precio").value="";
-}
-
 window.addEventListener("load", function(){
 
     // const btnPrueba = document.getElementById("btnPrueba");
     // btnPrueba.addEventListener("click", saludar);
-    document.getElementById("btnPrueba").addEventListener("click", saludar);
+    //document.getElementById("btnPrueba").addEventListener("click", saludar);
 
     // document.getElementById("prueba").onclick=saludar;
 
