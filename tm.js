@@ -31,25 +31,25 @@ function limpiar(){
 
     document.getElementById("producto").value="";
     document.getElementById("marca").value="0";
-    document.getElementById("precio").value="";
+    document.getElementById("valorMax").value="";
 
     ocultarDiv();
 }
 
 const productosDeTabla=[
-    {Producto: "Alimento seco", Marca: "MasterCat", Cantidad: "15 kilos", Valor: "$34.890"},
-    {Producto: "Alimento seco", Marca: "Meowi", Cantidad: "6 kilos", Valor: "$25.990"},
-    {Producto: "Alimento seco", Marca: "Meowi", Cantidad: "3 kilos", Valor: "$10.990"},
-    {Producto: "Alimento húmedo", Marca: "MasterCat", Cantidad: "1 sachet", Valor: "$1.500"},
-    {Producto: "Snacks", Marca: "Gati", Cantidad: "1 sachet", Valor: "$990"},
-    {Producto: "Snacks", Marca: "Michi", Cantidad: "1 sachet", Valor: "$890"},
-    {Producto: "Juguetes", Marca: "Michi", Cantidad: "3 pelotas de colores", Valor: "$1.690"},
-    {Producto: "Arena sanitaria", Marca: "Gati", Cantidad: "10 kilos", Valor: "$23.990"},
-    {Producto: "Arena sanitaria", Marca: "MasterCat", Cantidad: "6 kilos", Valor: "$15.990"},
-    {Producto: "Arena sanitaria", Marca: "Meowi", Cantidad: "4 kilos", Valor: "$9.990"},
+    {Producto: "Alimento seco", Marca: "MasterCat", Cantidad: "15 kilos", Valor: 34890},
+    {Producto: "Alimento seco", Marca: "Meowi", Cantidad: "6 kilos", Valor: 25990},
+    {Producto: "Alimento seco", Marca: "Meowi", Cantidad: "3 kilos", Valor: 10990},
+    {Producto: "Alimento húmedo", Marca: "MasterCat", Cantidad: "1 sachet", Valor: 1500},
+    {Producto: "Snacks", Marca: "Gati", Cantidad: "1 sachet", Valor: 990},
+    {Producto: "Snacks", Marca: "Michi", Cantidad: "1 sachet", Valor: 890},
+    {Producto: "Juguetes", Marca: "Michi", Cantidad: "3 pelotas de colores", Valor: 1690},
+    {Producto: "Arena sanitaria", Marca: "Gati", Cantidad: "10 kilos", Valor: 23990},
+    {Producto: "Arena sanitaria", Marca: "MasterCat", Cantidad: "6 kilos", Valor: 15990},
+    {Producto: "Arena sanitaria", Marca: "Meowi", Cantidad: "4 kilos", Valor: 9990},
 ]
 
-function imprimirTablaEnHTML(){
+function imprimirTablaEnHTML(datos){
 
 const tabla1=document.getElementById("tabla1");
 let htmlTabla = '';
@@ -62,12 +62,12 @@ let htmlTabla = '';
         htmlTabla += '       <th>Valor</th>'
         htmlTabla += '   </tr>'
 
-        for (let i = 0; i < productosDeTabla.length; i++) {
+        for (let i = 0; i < datos.length; i++) {
             htmlTabla += '   <tr>'
-            htmlTabla += '       <td>' +  productosDeTabla[i].Producto + '</td>'
-            htmlTabla += '       <td>' +  productosDeTabla[i].Marca + '</td>'
-            htmlTabla += '       <td>' +  productosDeTabla[i].Cantidad + '</td>'
-            htmlTabla += '       <td>' +  productosDeTabla[i].Valor + '</td>'
+            htmlTabla += '       <td>' +  datos[i].Producto + '</td>'
+            htmlTabla += '       <td>' +  datos[i].Marca + '</td>'
+            htmlTabla += '       <td>' +  datos[i].Cantidad + '</td>'
+            htmlTabla += '       <td>' +  datos[i].Valor + '</td>'
             htmlTabla += '   </tr>'    
         }  
         
@@ -105,10 +105,52 @@ let htmlTarjetas = '';
 
 function consultar(){
     mostrarDiv();
-    imprimirTablaEnHTML();
+
+    let filtrados = productosDeTabla;
+
+    const inProducto = document.getElementById("producto")
+    if(inProducto.value!='') {
+        const productoDigitado = inProducto.value;
+        filtrados = filtrarPorProducto(filtrados, productoDigitado)
+    }
+
+    const selMarca = document.getElementById("marca")
+    if(selMarca.value>0) {
+        const marcaSeleccionada = selMarca.options[selMarca.selectedIndex].text;
+        filtrados = filtrarPorMarca(filtrados, marcaSeleccionada)
+    }
+
+    const inValorMax = document.getElementById("valorMax")
+    if(inValorMax.value>0) {
+        const valorMaxDigitado = inValorMax.value;        
+        filtrados = filtrarPorPrecio(filtrados, valorMaxDigitado)
+    }
+
+    imprimirTablaEnHTML(filtrados);
     imprimirTarjetasEnHTML();
 };
    
+
+function filtrarPorProducto(datos, nombreProducto) {    
+    return datos.filter(function(obj) {
+      return obj.Producto.includes(nombreProducto);
+    });
+}
+
+function filtrarPorMarca(datos, nombreMarca) {
+    return datos.filter(function(obj) {
+      return obj.Marca === nombreMarca;
+    });
+}
+
+function filtrarPorPrecio(datos, precioMaximo) {
+    return datos.filter(function(obj) {
+      return obj.Valor <= precioMaximo;
+    });
+}
+    
+      
+
 window.addEventListener("load", function(){
 
     // const btnPrueba = document.getElementById("btnPrueba");
