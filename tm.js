@@ -67,7 +67,7 @@ let htmlTabla = '';
             htmlTabla += '       <td>' +  datos[i].Producto + '</td>'
             htmlTabla += '       <td>' +  datos[i].Marca + '</td>'
             htmlTabla += '       <td>' +  datos[i].Cantidad + '</td>'
-            htmlTabla += '       <td>' +  datos[i].Valor + '</td>'
+            htmlTabla += '       <td>' +  '$' + datos[i].Valor + '</td>'
             htmlTabla += '   </tr>'    
         }  
         
@@ -90,7 +90,7 @@ let htmlTarjetas = '';
             htmlTarjetas += '           <div class="card-body">' +  productosDeTabla[i].Producto + '</div>';
             htmlTarjetas += '           <h5 class="card-tittle">' +  productosDeTabla[i].Marca + '</h5>';
             htmlTarjetas += '           <div class="card-body">' +  productosDeTabla[i].Cantidad + '</div>';
-            htmlTarjetas += '           <div class="card-footer">' +  productosDeTabla[i].Valor + '</div>';
+            htmlTarjetas += '           <div class="card-footer">' + '$' +  productosDeTabla[i].Valor + '</div>';
             htmlTarjetas += '               <a href="#" class="btn btn-secondary">Comprar aquí! </a>';
             htmlTarjetas += '       </div>';
             htmlTarjetas += '   </div>';
@@ -108,23 +108,29 @@ function consultar(){
 
     let filtrados = productosDeTabla;
 
-    const inProducto = document.getElementById("producto")
+    const inProducto = document.getElementById("producto");
     if(inProducto.value!='') {
         const productoDigitado = inProducto.value;
-        filtrados = filtrarPorProducto(filtrados, productoDigitado)
-    }
+        filtrados = filtrarPorProducto(filtrados, productoDigitado);
+    };
 
-    const selMarca = document.getElementById("marca")
+    const selMarca = document.getElementById("marca");
     if(selMarca.value>0) {
         const marcaSeleccionada = selMarca.options[selMarca.selectedIndex].text;
-        filtrados = filtrarPorMarca(filtrados, marcaSeleccionada)
-    }
+        filtrados = filtrarPorMarca(filtrados, marcaSeleccionada);
+    };
 
-    const inValorMax = document.getElementById("valorMax")
+    const inValorMax = document.getElementById("valorMax");
     if(inValorMax.value>0) {
         const valorMaxDigitado = inValorMax.value;        
-        filtrados = filtrarPorPrecio(filtrados, valorMaxDigitado)
-    }
+        filtrados = filtrarPorPrecio(filtrados, valorMaxDigitado);
+    } 
+    
+    const inValorMin = document.getElementById("valorMin");
+    if(inValorMin.value>0) {
+        const valorMinDigitado = inValorMin.value;       
+        filtrados = filtrarPorPrecioMinimo(filtrados, valorMinDigitado);
+    };
 
     imprimirTablaEnHTML(filtrados);
     imprimirTarjetasEnHTML();
@@ -148,7 +154,12 @@ function filtrarPorPrecio(datos, precioMaximo) {
       return obj.Valor <= precioMaximo;
     });
 }
-    
+
+function filtrarPorPrecioMinimo(datos, precioMinimo) {
+    return datos.filter(function(obj) {
+      return obj.Valor >= precioMinimo;
+    });
+}
       
 
 window.addEventListener("load", function(){
